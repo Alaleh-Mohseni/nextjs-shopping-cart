@@ -11,7 +11,7 @@ function ProductPage({ params: { id } }) {
 
   return (
     <div className='w-3/5 m-auto py-8 px-16 rounded-lg bg-white'>
-      <div className='mb-6 text-center font-semibold'>
+      <div className='mb-6 text-center font-semibold text-xl'>
         <Link href='/'>بازگشت به فروشگاه</Link>
       </div>
       <div className='grid md:grid-cols-2'>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import AddToCart from './AddToCart'
 import AddToWishes from './AddToWishes'
 
+
 function ProductItem({ product }) {
   return (
     <div className='rounded-lg border m-4'>

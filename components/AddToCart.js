@@ -4,6 +4,8 @@ import { useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 
+import { toast } from 'react-hot-toast'
+
 import { addToCart } from '@/redux/slices/cartSlice'
 
 function AddToCart({ product }) {
@@ -22,11 +24,13 @@ function AddToCart({ product }) {
       if (existingItem.qty + 1 <= product.count) {
         newQty = existingItem.qty + 1
       } else {
-        return alert('محصول وجود ندارد')
+        return toast.error('محصول وجود ندارد')
       }
     }
 
     dispatch(addToCart({ ...product, qty: newQty }))
+    
+    toast.success('محصول با موفقیت به سبد خرید اضافه شد')
   }
 
   return (
