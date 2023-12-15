@@ -29,15 +29,13 @@ function AddToWishes({ product }) {
 
 
     return (
-        <>
-            <div className='hover:bg-slate-50'>
-                {!existingItem ? (
-                    <BsBookmark onClick={() => addToWishListHandler(product)} />
-                ) : (
-                    <BsBookmarkFill onClick={() => removeFromWishListHandler(product.id)} />
-                )}
-            </div>
-        </>
+        <div className='hover:bg-slate-50 flex justify-end'>
+            {!existingItem ? (
+                <BsBookmark onClick={() => addToWishListHandler(product)} />
+            ) : (
+                <BsBookmarkFill onClick={() => removeFromWishListHandler(product.id)} />
+            )}
+        </div>
     )
 }
 

@@ -9,6 +9,8 @@ import { TfiShoppingCart } from "react-icons/tfi";
 function Navbar() {
   const { cartItems } = useSelector((state) => state.cart)
 
+  const productCount = cartItems.reduce((acc, cur) => acc + cur.qty, 0)
+
   return (
     <header className='container m-auto p-4'>
       <nav className='flex justify-between items-center h-12 border-b'>
@@ -18,7 +20,7 @@ function Navbar() {
         <div className='flex items-center'>
           <div className='flex justify-center items-center text-gray-900'>
             <span className='pe-[2px]'>
-              ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)})
+              ({Number(productCount).toLocaleString('fa-IR')})
             </span>
             <Link href='/cart'>
               <TfiShoppingCart size='26' />

@@ -5,13 +5,16 @@ import AddToCart from '@/components/AddToCart'
 import AddToWishes from '@/components/AddToWishes'
 
 import { items } from '@/data/items'
+import { FaAngleLeft } from "react-icons/fa"
+
 
 function ProductPage({ params: { id } }) {
   const product = items.products.find(product => product.id === id)
 
   return (
     <div className='w-3/5 m-auto py-8 px-16 rounded-lg bg-white'>
-      <div className='mb-6 text-center font-semibold text-xl'>
+      <div className='flex justify-center items-center mb-6 font-semibold text-xl'>
+        <FaAngleLeft className='pe-2' />
         <Link href='/'>بازگشت به فروشگاه</Link>
       </div>
       <div className='grid md:grid-cols-2'>
@@ -28,7 +31,9 @@ function ProductPage({ params: { id } }) {
               <AddToWishes product={product} />
             </div>
             <div>
-              <h2 className='text-md my-4 rtl'>{product.price + ' '}تومان</h2>
+              <h2 className='text-md my-4 rtl'>
+                {Number(product.price).toLocaleString('fa-IR')} تومان
+              </h2>
             </div>
           </div>
           <AddToCart product={product} />

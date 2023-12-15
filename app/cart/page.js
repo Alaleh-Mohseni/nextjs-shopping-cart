@@ -22,7 +22,7 @@ function CartPage() {
       return 0
     }
 
-    return quantity
+    return Number(quantity).toLocaleString('fa-IR')
   }
 
 
@@ -30,7 +30,7 @@ function CartPage() {
     dispatch(removeFromCart(id))
   }
 
-  
+
   return (
     <div className="bg-white pt-8 sm:pt-8 lg:pt-8 rtl min-h-screen">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +63,9 @@ function CartPage() {
                             </div>
 
                             <div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
-                              <p className="shrink-0 text-md text-gray-900 sm:order-2 sm:ms-8 sm:text-right">{item.price} تومان</p>
+                              <p className="shrink-0 text-md text-gray-900 sm:order-2 sm:ms-8 sm:text-right">
+                                {Number(item.price).toLocaleString('fa-IR')} تومان
+                              </p>
                             </div>
                           </div>
 
@@ -89,7 +91,7 @@ function CartPage() {
                 <div className="mt-6 flex items-center justify-between border-t pt-4">
                   <p className="text-sm font-medium text-gray-900">مجموع قیمت</p>
                   <p className="text-2xl font-semibold text-gray-900 rtl">
-                    {totalPrice}{' '}
+                    {Number(totalPrice).toLocaleString('fa-IR')}{' '}
                     <span className="text-xs font-normal text-gray-400">تومان</span>
                   </p>
                 </div>
@@ -107,7 +109,7 @@ function CartPage() {
             </div>
           </div>
         ) : (
-          <p className="text-md text-gray-800 text-center mt-10">هیچ محصولی وجود ندارد.</p>
+          <p className="text-md text-gray-800 text-center mt-10">هیچ محصولی در سبد خرید وجود ندارد.</p>
         )
         }
       </div>

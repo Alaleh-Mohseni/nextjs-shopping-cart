@@ -11,7 +11,6 @@ function WishPage() {
     const dispatch = useDispatch()
     const { wishes } = useSelector((state) => state.wish)
 
-
     function removeFromWishListHandler(product) {
         dispatch(removeFromWishList(product))
     }
@@ -31,7 +30,9 @@ function WishPage() {
                         />
                         <div className='flex flex-col items-center justify-center p-4 text-xs'>
                             <h2 className='text-ellipsis overflow-hidden'>{product.title}</h2>
-                            <p className='mt-2 rtl'>{product.price} تومان</p>
+                            <p className='mt-2 rtl'>
+                                {Number(product.price).toLocaleString('fa-IR')} تومان
+                            </p>
                             <div className='bg-gray-900 text-white rounded-md px-2 py-1 mt-3 hover:bg-gray-800'>
                                 <button onClick={() => removeFromWishListHandler(product.id)}>حذف</button>
                             </div>
