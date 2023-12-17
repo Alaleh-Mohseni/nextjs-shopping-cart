@@ -1,5 +1,7 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { removeFromWishList } from '@/redux/slices/wishSlice';
@@ -18,7 +20,7 @@ function WishPage() {
     return (
         <div className='min-h-screen'>
             <h1 className='text-center text-xl font-semibold'>لیست علاقه مندی ها</h1>
-            <div className='container grid grid-cols-6 m-auto pt-6'>
+            <div className='container grid lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-2 m-auto pt-6'>
                 {wishes.map(product => (
                     <div className='rounded-lg border m-5' key={product.id}>
                         <Image
@@ -44,4 +46,4 @@ function WishPage() {
     )
 }
 
-export default WishPage
+export default dynamic(() => Promise.resolve(WishPage), { ssr: false })

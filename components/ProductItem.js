@@ -19,7 +19,9 @@ function ProductItem({ product }) {
         <div className='grid grid-cols-4 w-full'>
           <div className='col-span-3'>
             <Link href={`/product/${product.id}`} >
-              <h2 className='text-ellipsis overflow-hidden whitespace-nowrap text-sm'>{product.title}</h2>
+              <h2 className='text-ellipsis overflow-hidden whitespace-nowrap text-sm'>
+                {product.title}
+              </h2>
             </Link>
           </div>
           <AddToWishes product={product} />

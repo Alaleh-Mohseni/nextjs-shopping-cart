@@ -1,5 +1,7 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+
 import { useDispatch, useSelector } from 'react-redux'
 
 import { removeFromCart } from '@/redux/slices/cartSlice'
@@ -117,4 +119,4 @@ function CartPage() {
   )
 }
 
-export default CartPage
+export default dynamic(() => Promise.resolve(CartPage), { ssr: false })

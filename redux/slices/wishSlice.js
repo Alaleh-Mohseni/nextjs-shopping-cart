@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import Cookies from 'js-cookie'
+
 import { toast } from 'react-hot-toast'
 
+// const wishItems = localStorage.getItem("wishItems") ? JSON.parse(localStorage.getItem("wishItems")) : []
+
 const initialState = {
-    wishes: []
+    wishes: Cookies.get('wishItems') ? JSON.parse(Cookies.get('wishItems')) : [],
 }
 
 const wishSlice = createSlice({
@@ -19,11 +23,17 @@ const wishSlice = createSlice({
                 toast.error('این محصول قبلا اضافه شده است.')
             } else {
                 state.wishes.push({ ...item })
+
+                // localStorage.setItem("wishItems", JSON.stringify(state.wishes))
+                Cookies.set("wishItems", JSON.stringify(state.wishes))
             }
 
         },
         removeFromWishList: (state, action) => {
             state.wishes = state.wishes.filter(product => product.id !== action.payload)
+
+            // localStorage.setItem("wishItems", JSON.stringify(state.wishes))
+            Cookies.set("wishItems", JSON.stringify(state.wishes))
         }
     }
 })

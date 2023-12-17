@@ -12,7 +12,7 @@ function ProductPage({ params: { id } }) {
   const product = items.products.find(product => product.id === id)
 
   return (
-    <div className='w-3/5 m-auto py-8 px-16 rounded-lg bg-white'>
+    <div className='lg:w-3/5 sm:w-full m-auto py-8 px-16 rounded-lg bg-white min-h-screen'>
       <div className='flex justify-center items-center mb-6 font-semibold text-xl'>
         <FaAngleLeft className='pe-2' />
         <Link href='/'>بازگشت به فروشگاه</Link>

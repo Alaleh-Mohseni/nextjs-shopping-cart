@@ -6,7 +6,7 @@ function Home() {
   const { products } = items
 
   return (
-    <div className='container grid grid-cols-4 m-auto pt-6'>
+    <div className='container grid lg:grid-cols-4 m-auto pt-6 sm:grid-cols-2 md:grid-cols-2'>
       {products.map(item => (
         <ProductItem key={item.id} product={item} />
       ))}

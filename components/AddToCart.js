@@ -29,14 +29,19 @@ function AddToCart({ product }) {
     }
 
     dispatch(addToCart({ ...product, qty: newQty }))
-    
+
     toast.success('محصول با موفقیت به سبد خرید اضافه شد')
   }
 
   return (
     <>
       <div className='bg-gray-900 text-white rounded-lg px-3 py-2 mt-3 hover:bg-gray-800 mx-auto'>
-        <button onClick={addToCartHandler} className='text-sm'>افزودن به سبد خرید</button>
+        <button
+          onClick={addToCartHandler}
+          className='text-sm'
+        >
+          افزودن به سبد خرید
+        </button>
       </div>
     </>
   )
