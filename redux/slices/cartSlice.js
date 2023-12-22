@@ -20,9 +20,12 @@ const cartSlice = createSlice({
                 state.cartItems = state.cartItems.map(product =>
                     product.id === existingItem.id ? item : product
                 )
+
+                Cookies.set("cartItems", JSON.stringify(state.cartItems))
             } else {
                 state.cartItems = [...state.cartItems, item]
-                // Cookies.set("cartItems", JSON.stringify(state.cartItems))
+
+                Cookies.set("cartItems", JSON.stringify(state.cartItems))
             }
 
             state.itemsPrice = state.cartItems.reduce(

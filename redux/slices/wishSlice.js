@@ -4,7 +4,6 @@ import Cookies from 'js-cookie'
 
 import { toast } from 'react-hot-toast'
 
-// const wishItems = localStorage.getItem("wishItems") ? JSON.parse(localStorage.getItem("wishItems")) : []
 
 const initialState = {
     wishes: Cookies.get('wishItems') ? JSON.parse(Cookies.get('wishItems')) : [],
@@ -24,7 +23,6 @@ const wishSlice = createSlice({
             } else {
                 state.wishes.push({ ...item })
 
-                // localStorage.setItem("wishItems", JSON.stringify(state.wishes))
                 Cookies.set("wishItems", JSON.stringify(state.wishes))
             }
 
@@ -32,7 +30,6 @@ const wishSlice = createSlice({
         removeFromWishList: (state, action) => {
             state.wishes = state.wishes.filter(product => product.id !== action.payload)
 
-            // localStorage.setItem("wishItems", JSON.stringify(state.wishes))
             Cookies.set("wishItems", JSON.stringify(state.wishes))
         }
     }

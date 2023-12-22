@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { removeFromCart } from '@/redux/slices/cartSlice'
 
-import { FaArrowLeft } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa6"
+
+import { toFarsi } from '../lib/changeFormat'
 
 
 function CartPage() {
@@ -24,7 +26,7 @@ function CartPage() {
       return 0
     }
 
-    return Number(quantity).toLocaleString('fa-IR')
+    return toFarsi(quantity)
   }
 
 
@@ -66,7 +68,7 @@ function CartPage() {
 
                             <div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
                               <p className="shrink-0 text-md text-gray-900 sm:order-2 sm:ms-8 sm:text-right">
-                                {Number(item.price).toLocaleString('fa-IR')} تومان
+                                {toFarsi(item.price)} تومان
                               </p>
                             </div>
                           </div>
@@ -93,8 +95,8 @@ function CartPage() {
                 <div className="mt-6 flex items-center justify-between border-t pt-4">
                   <p className="text-sm font-medium text-gray-900">مجموع قیمت</p>
                   <p className="text-2xl font-semibold text-gray-900 rtl">
-                    {Number(totalPrice).toLocaleString('fa-IR')}{' '}
-                    <span className="text-xs font-normal text-gray-400">تومان</span>
+                    {toFarsi(totalPrice)}{' '}
+                    <span className="text-sm font-normal text-gray-500">تومان</span>
                   </p>
                 </div>
 

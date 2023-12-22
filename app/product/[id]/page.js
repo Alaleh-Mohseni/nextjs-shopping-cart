@@ -1,11 +1,13 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 import AddToCart from '@/components/AddToCart'
 import AddToWishes from '@/components/AddToWishes'
+import Slider from '@/components/Slider'
 
 import { items } from '@/data/items'
 import { FaAngleLeft } from "react-icons/fa"
+
+import { toFarsi } from '@/app/lib/changeFormat'
 
 
 function ProductPage({ params: { id } }) {
@@ -18,13 +20,10 @@ function ProductPage({ params: { id } }) {
         <Link href='/'>بازگشت به فروشگاه</Link>
       </div>
       <div className='grid md:grid-cols-2'>
-        <Image
-          src={product.image}
-          width={400}
-          height={400}
-          className='rounded-lg'
-        />
-        <div className='p-5 flex flex-col justify-between'>
+        <div>
+          <Slider item={product.images} />
+        </div>
+        <div className='p-5 h-[150px] flex flex-col justify-between'>
           <div>
             <div className='flex justify-between w-full'>
               <h1 className='text-md'>{product.title}</h1>
@@ -32,7 +31,7 @@ function ProductPage({ params: { id } }) {
             </div>
             <div>
               <h2 className='text-md my-4 rtl'>
-                {Number(product.price).toLocaleString('fa-IR')} تومان
+                {toFarsi(product.price)} تومان
               </h2>
             </div>
           </div>

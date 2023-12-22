@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast"
 
 import App from '@/components/App'
 
-import './globals.css'
+import './ui/globals.css'
 
 export const metadata = {
   title: 'Shopping Cart',

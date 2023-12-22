@@ -4,6 +4,8 @@ import Link from 'next/link'
 import AddToCart from './AddToCart'
 import AddToWishes from './AddToWishes'
 
+import { toFarsi } from '@/app/lib/changeFormat'
+
 
 function ProductItem({ product }) {
   return (
@@ -27,7 +29,7 @@ function ProductItem({ product }) {
           <AddToWishes product={product} />
         </div>
         <p className='mt-2 rtl text-sm text-gray-500'>
-          {Number(product.price).toLocaleString('fa-IR')} تومان
+          {toFarsi(product.price)} تومان
         </p>
         <AddToCart product={product} />
       </div>
